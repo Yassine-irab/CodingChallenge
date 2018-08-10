@@ -1,22 +1,22 @@
 
 @font-face
     font-family: "AlJazeera-Regular"
-    src: url("/fonts/AlJazeera-Regular.ttf")
+    src: url("../fonts/AlJazeera-Regular.ttf")
 
 
 @font-face
     font-family: "AlJazeera-Bold"
-    src: url("/fonts/AlJazeera-Bold.ttf")
+    src: url("../fonts/AlJazeera-Bold.ttf")
 
 
 @font-face
     font-family: "AlJazeera-light"
-    src: url("/fonts/AlJazeera-Light.ttf")
+    src: url("../fonts/AlJazeera-Light.ttf")
 
 
 @font-face
     font-family: "Cairo-Light"
-    src: url("/fonts/Cairo-Light.ttf")
+    src: url("../fonts/Cairo-Light.ttf")
 
 
 *
@@ -24,7 +24,7 @@
     
 body 
     margin: 0
-    font-family: "AlJazeera-Regular",arial,sans-serif
+    font-family: "AlJazeera-Regular"
     
 .clear
     content: ''
@@ -41,7 +41,6 @@ body
 #header-section .top-header-section
     display: block
     border-bottom: 2px solid #8e4a9c
-    height: 122px
 
                                                     /*Start Styling the top header section*/
     
@@ -50,14 +49,15 @@ body
     text-align: center
     a
         display: inline-block
-        margin-top: 25px
+        margin-top: 20px
+        margin-bottom: 20px
     img
-        width: 150px
+        width: 100px
     
 .top-header-section .containerBody .menuBurger
     float: right
     position: absolute
-    top: 15px
+    top: 0
     right: 20px
     
 .burger-item div
@@ -90,7 +90,6 @@ body
 
 #header-section .bottom-header-section
     display: block
-    height: 50px
     
 .scroll
     white-space: nowrap
@@ -105,17 +104,71 @@ body
     padding: 12px 16px 13px
     font-size: 16px
     color: #c9a5d1
+    font-family: "AlJazeera-Regular"
     
 .nav-item,.vertical-align-middle 
     display: inline-block
-    vertical-align: middle
-    text-align: right
-    list-style-position: inside  
+    vertical-align: middle  
     
 .scroll::-webkit-scrollbar 
     display: none
     
 
+    
+.card-image 
+    display: block
+    min-height: 15rem /* layout hack */
+    background-size: cover
+    background-position: center
+    
+
+.card-image > img 
+    display: block
+    width: 60%
+    opacity: 0 /* visually hide the img element */
+
+.card-image.is-loaded 
+    -webkit-filter: none
+    filter: none /* remove the blur on fullres image */
+    -webkit-transition: -webkit-filter 1s
+    transition: -webkit-filter 1s
+    transition: filter 1s
+    transition: filter 1s, -webkit-filter 1s
+
+
+.card-list 
+    display: block
+    margin: 1rem auto
+    padding: 0
+    font-size: 0
+    text-align: center
+    list-style: none
+
+.card 
+    display: inline-block
+    /*width: 90%*/
+    /*max-width: 11rem*/
+    margin: 1rem
+    font-size: 1rem
+    text-decoration: none
+
+.card-description 
+    display: block
+    padding: 1em 0.5em
+    color: #515151
+    text-decoration: none
+
+.card-description > h2 
+    margin: 0 0 0.5em
+    font-family: "AlJazeera-Regular"
+    font-size: 25px
+    text-transform: uppercase
+    text-align: right
+
+.card-description > p 
+    margin: 0
+    font-family: "AlJazeera-Regular"
+    text-align: right
     
     
 
