@@ -84,7 +84,8 @@ body {
   white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  direction: rtl; }
 
 .nav-one-header {
   border-radius: 3px; }
@@ -154,5 +155,75 @@ body {
   margin: 0;
   font-family: "AlJazeera-Regular";
   text-align: right; }
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  margin: 50px auto 0; }
+
+@media screen and (min-width: 800px) {
+  .swiper-container {
+    width: 70%;
+    margin-left: 15%; } }
+.swiper-slide {
+  background: #fff;
+  color: #333;
+  font-size: 1.8rem;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+.swiper-container-horizontal > .swiper-pagination {
+  top: 0;
+  bottom: auto; }
+
+.swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
+  margin: 0; }
+
+.active-mark {
+  background: #ffeb3b;
+  width: 25%;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  top: 52px;
+  transition: left 0.2s ease-out; }
+
+.swiper-pagination-bullet {
+  background-color: #00D42B;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #0e8927;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: normal;
+  opacity: 1;
+  height: 56px;
+  width: 25%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: font-weight 0.22s ease; }
+
+.swiper-pagination-bullet:nth-of-type(1).swiper-pagination-bullet-active ~ .active-mark {
+  left: 0%; }
+
+.swiper-pagination-bullet:nth-of-type(2).swiper-pagination-bullet-active ~ .active-mark {
+  left: 25%; }
+
+.swiper-pagination-bullet:nth-of-type(3).swiper-pagination-bullet-active ~ .active-mark {
+  left: 50%; }
+
+.swiper-pagination-bullet:nth-of-type(4).swiper-pagination-bullet-active ~ .active-mark {
+  left: 75%; }
+
+.swiper-pagination-bullet:first-of-type.swiper-pagination-bullet-active ~ .active-mark {
+  left: 0; }
+
+.swiper-pagination-bullet-active {
+  font-weight: bold; }
 
 /*# sourceMappingURL=index.css.map */
