@@ -111,8 +111,8 @@ body {
 
 .card-image > img {
   display: block;
-  width: 60%;
-  opacity: 0; }
+  width: 100%;
+  opacity: 1; }
 
 .card-image.is-loaded {
   -webkit-filter: none;

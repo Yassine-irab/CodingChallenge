@@ -52,7 +52,9 @@
                 </div>
            
             </div>
+            
            <div class="clear"></div>
+           
         </div>
        
         <div class="bottom-header-section">
@@ -62,8 +64,8 @@
                
               <header class='nav-one-header scroll'>
               
-                <nav class='vertical-align-middle'>
-                  <a href="#"><span class='nav-item'><i class="fas fa-home"></i></span></a><a href="#"><span class='nav-item'>سياسة</span></a><a href="#"><span class='nav-item'>مجتمع</span></a><a href="#"><span class='nav-item'>اقتصاد</span></a><a href="#"><span class='nav-item'>رياضة</span></a><a href="#"><span class='nav-item'>ثقافة</span></a><a href="#"><span class='nav-item'>رأي</span></a><a href="#"><span class='nav-item'>رياضة</span></a><a href="#"><span class='nav-item'>فيديوهات</span></a><a href="#"><span class='nav-item'>ستوديو لكم</span></a> 
+                <nav id="menuData" class='vertical-align-middle'>
+                  <a href="#"><span class='nav-item'><i class="fas fa-home"></i></span></a>
                 </nav>
                 
               </header>               
@@ -83,29 +85,7 @@
 			    
                 <div class="grid-news">
 
-                    <ul class="card-list">  
-
-                        <li class="card">
-                            <a class="card-image" href="#" style="background-image: url(images/imagenews.jpg);">
-                                <img src="images/imagenews.jpg" alt="" />
-                            </a>
-                            <a class="card-description" href="#" title="">
-                                <h2>مجلس النواب يحسم في جدل تقاعد البرلمانيين الأسبوع المقبل</h2>
-                                <p>12 يونيو 2018 </p>
-                            </a>                       
-                        </li>
-
-                        <li class="card">
-                            <a class="card-image" href="#" style="background-image: url(images/imagenews.jpg);">
-                                <img src="images/imagenews.jpg" alt="" />
-                            </a>
-                            <a class="card-description" href="#" title="">
-                                <h2>مجلس النواب يحسم في جدل تقاعد البرلمانيين الأسبوع المقبل</h2>
-                                <p>12 يونيو 2018 </p>
-                            </a>                       
-                        </li>
-
-                    </ul>
+                    <ul id="contentData" class="card-list"></ul>
 
                 </div>			    
 			    
@@ -203,8 +183,7 @@
 				}
 				return '<span class="' + className + '">' + tabsName[index] + '</span>';
         		}            
-		});         
-        
+		});
     
     </script>
     
