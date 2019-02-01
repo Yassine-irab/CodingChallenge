@@ -25,6 +25,9 @@
 body 
     margin: 0
     font-family: "AlJazeera-Regular"
+
+a
+    text-decoration: none
     
 .clear
     content: ''
@@ -37,13 +40,25 @@ body
     background: -webkit-linear-gradient(left, #6f2f8f 0%,#a2378e 100%) /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, #6f2f8f 0%,#a2378e 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6f2f8f', endColorstr='#a2378e',GradientType=1 ) /* IE6-9 */
-    
+
+#header-sectionContent
+    background-color: #fff
+
+#header-sectionContent .top-header-section
+    display: block
+    border-bottom: 1px solid #ddd
+
 #header-section .top-header-section
     display: block
-    border-bottom: 2px solid #8e4a9c
-
-                                                    /*Start Styling the top header section*/
+    border-bottom: 2px solid #8e4a9c                                            /*Start Styling the top header section*/
     
+#header-sectionContent
+    img
+        width: 30px
+
+.containerBody
+    position: relative
+
 .top-header-section .containerBody .logo
     margin: 0 auto
     text-align: center
@@ -59,7 +74,53 @@ body
     position: absolute
     top: 0
     right: 20px
-    
+
+.top-header-section .containerBody .arrows   
+    float: left
+    position: absolute
+    top: 55%
+    left: 20px
+    transform: translateY(-50%)
+
+.top-header-section .containerBody .arrows img
+    width: 15px !important
+
+#header-sectionContent .socialShare
+    overflow: hidden
+
+.contentMedia
+    text-align: right
+    margin: 10px 0
+    font-family: "AlJazeera-Regular"
+    font-size: 20px
+    line-height: 35px
+
+.fa-shareBTN a , .tw-shareBTN a
+    padding: 5px 15px
+    border-radius: 4px
+    width: 49%
+    display: inline-block
+    color: #fff
+    text-align: right
+    font-family: "AlJazeera-Regular"
+    font-size: 16px
+
+.fa-shareBTN a
+    background-color: #496399
+    float: left
+
+.tw-shareBTN a
+    background-color: #2fb1e3
+    float: right
+
+#header-sectionContent .burger-item div
+    height: 4px
+    background: #818181
+    border: 0.3px solid #dbb8d5
+    margin: 7px 0
+    border-radius: 0px
+    transition: .3s
+
 .burger-item div
     height: 4px
     background: #f8f8f8
@@ -67,7 +128,7 @@ body
     margin: 7px 0
     border-radius: 0px
     transition: .3s
-        
+
 .burger-item
     display: block
     margin: 2em 0 0 2em
@@ -88,7 +149,7 @@ body
     
                                                             /*Ends of header section*/
 
-#header-section .bottom-header-section
+#header-section .bottom-header-section , #header-sectionContent .bottom-header-section
     display: block
     
 .scroll
@@ -192,9 +253,27 @@ body
     align-items: center
     text-align: center
 
+.swiper-pagination
+    position: relative !important
+    background: #6f2f8f /* Old browsers */
+    background: -moz-linear-gradient(left, #6f2f8f 0%, #a2378e 100%) /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #6f2f8f 0%,#a2378e 100%) /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #6f2f8f 0%,#a2378e 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6f2f8f', endColorstr='#a2378e',GradientType=1 ) /* IE6-9 */    
+
+.swiper-pagination-bullet
+    background-color: #ebcbeb !important
+    width: 12px !important
+    height: 12px !important
+    margin: 0 5px    
+
+.swiper-pagination-bullet-active
+    background-color: #fff !important
+    
 .swiper-container-horizontal > .swiper-pagination
     top: 0
     bottom: auto
+
 .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet
     margin: 0
 

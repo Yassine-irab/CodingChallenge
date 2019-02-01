@@ -1,3 +1,31 @@
+$(function () {
+	"use strict";
+	$("#header-section").load("header.html");
+});
+
+$(function () {
+	"use strict";
+	$("#header-sectionContent").load("headerContent.html");
+});
+
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+			slidesPerView: 1,
+			paginationClickable: true,
+			loop: false,
+       		paginationBulletRender: function (index, className) {
+				var tabsName = ['Apps', 'Tricks', 'News', 'Games'];
+				if ( index === (tabsName.length - 1) ) {
+          				return	'<span class="' + className + '">'
+          						+ tabsName[index] + '</span>'
+          						+ '<div class="active-mark "></div>';
+				}
+				return '<span class="' + className + '">' + tabsName[index] + '</span>';
+        		}            
+		});
+
 $(document).ready(function(){
 
 	var  menuDataURLS = "http://femme.nextmedia.ma/api/menus/get_menu/?menu_id=7";
@@ -8,7 +36,7 @@ $(document).ready(function(){
 		var count = 0;
 		$.each(data, function(key, value){
 			if( count < 4) {
-				menuData += '<a><span class="nav-item">'
+				menuData += '<a href="#"><span class="nav-item">'
 				menuData += data.menu.output[count++].label;
 				menuData += '</span></a>'
 			}
