@@ -8,34 +8,16 @@ $(function () {
 	$("#header-sectionContent").load("headerContent.html");
 });
 
-        var swiper = new Swiper('.swiper-container', {
-            pagination: {
-                el: '.swiper-pagination',
-            },
-			slidesPerView: 1,
-			paginationClickable: true,
-			loop: false,
-       		paginationBulletRender: function (index, className) {
-				var tabsName = ['Apps', 'Tricks', 'News', 'Games'];
-				if ( index === (tabsName.length - 1) ) {
-          				return	'<span class="' + className + '">'
-          						+ tabsName[index] + '</span>'
-          						+ '<div class="active-mark "></div>';
-				}
-				return '<span class="' + className + '">' + tabsName[index] + '</span>';
-        		}            
-		});
-
 $(document).ready(function(){
 
 	var  menuDataURLS = "http://femme.nextmedia.ma/api/menus/get_menu/?menu_id=7";
 	var contentDataURLS = "http://femme.nextmedia.ma/api/get_recent_posts/";
 
-	$.getJSON(menuDataURLS).then(function(data) {
+	$.getJSON(menuDataURLS, function(data) {
 		var menuData = '';
 		var count = 0;
 		$.each(data, function(key, value){
-			if( count < 4) {
+			if( count < data.count) {
 				menuData += '<a href="#"><span class="nav-item">'
 				menuData += data.menu.output[count++].label;
 				menuData += '</span></a>'
@@ -47,16 +29,13 @@ $(document).ready(function(){
 
 		$('#menuData').append(menuData);
 
-	})
-	.fail(function() {
-		// ...didn't work, handle it
 	});
 
-	$.getJSON(contentDataURLS).then(function(data) {
+	$.getJSON(contentDataURLS, function(data) {
 		var contentData = '',
 			count = 0;
 		$.each(data, function(key, value){
-			if( count < 9) {
+			if( count < data.count) {
 				contentData += '<li class="card">'
 				contentData += '<a class="card-image" href="#">'
 				contentData += '<img src="'+ data.posts[++count].attachments[0].url +'" alt="" />'
@@ -66,7 +45,7 @@ $(document).ready(function(){
 				contentData += data.posts[count++].title;
 				contentData += '</h2>'
 				contentData += '<p>'
-				contentData += data.posts[count++].date;
+				// contentData += data.posts[count++].date.toString();
 				contentData += '</p>'
 				contentData += '</a>'
 				contentData += '</li>'
@@ -74,32 +53,76 @@ $(document).ready(function(){
 			else {
 				return false;
 			}
-		})
-		.fail(function() {
-			// ...didn't work, handle it
 		});
 
 		$('#contentData').append(contentData);
 
 	});
 
-	$.getJSON(menuDataURLS).then(function(data) {
-		var menuData = '';
+	$.getJSON(contentDataURLS, function(data) {
+		var contentData = '';
 		var count = 0;
 		$.each(data, function(key, value){
-			if( count < 4) {
-				
+			if( count < data.count) {
+
+				contentData += '<div class="swiper-slide">'
+				contentData += '<div class="grid-news">'
+				contentData += '<ul class="card-list">'
+				contentData += '<li class="card">'
+				contentData += '<a class="card-image" href="#">'
+				// contentData += '<img src="'+ data.posts[++count].attachments[0].url +'" alt="" />'
+				contentData += '</a>'
+				contentData += '<a class="card-description" href="#" title="">'
+				contentData += '<h2>'
+				contentData += data.posts[++count].title;				
+				contentData += '</h2>'
+				contentData += '<p>'
+				// contentData += data.posts[count++].date.toString();
+				contentData += '</p>'
+				contentData += '</a>'
+				contentData += '<div class="socialShare"><div class="fa-shareBTN"><a href="#"><i class="fab fa-facebook-f"></i><span>(23) &nbsp; شارك</span></a></div>'
+				contentData += '<div class="tw-shareBTN"><a href="#"><i class="fab fa-twitter"></i>(23) &nbsp; غرد</a></div></div>'
+				contentData += '<div class="clear"></div>'
+				contentData += '<div class="contentMedia">'
+				contentData += '<p class="introContent">'
+				contentData += data.posts[count++].content;
+				contentData += '<p>'
+				contentData += '</div>'
+				contentData += '<div class="socialShare"><div class="fa-shareBTN"><a href="#"><i class="fab fa-facebook-f"></i><span>(23) &nbsp; شارك</span></a></div>'
+				contentData += '<div class="tw-shareBTN"><a href="#"><i class="fab fa-twitter"></i>(23) &nbsp; غرد</a></div></div>'				
+				contentData += '</li>'
+				contentData += '</ul>'
+				contentData += '</div>'
+				contentData += '</div>'
+
 			}
 			else {
 				return false;
 			}
 		});
 
-		$('#menuData').append(menuData);
+		$('.swiper-wrapper').append(contentData);
 
-	})
-	.fail(function() {
-		// ...didn't work, handle it
 	});
 
 });
+
+var swiper = new Swiper('.swiper-container', {
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	},
+	slidesPerView: 1,
+	paginationClickable: true,
+	loop: false,
+	autoHeight: true,
+	   paginationBulletRender: function (index, className) {
+		var tabsName = ['Apps', 'Tricks', 'News', 'Games'];
+		if ( index === (tabsName.length - 1) ) {
+				  return	'<span class="' + className + '">'
+						  + tabsName[index] + '</span>'
+						  + '<div class="active-mark "></div>';
+		}
+		return '<span class="' + className + '">' + tabsName[index] + '</span>';
+		}            
+});   
