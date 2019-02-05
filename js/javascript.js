@@ -31,7 +31,7 @@ $(document).ready(function(){
 	var  menuDataURLS = "http://femme.nextmedia.ma/api/menus/get_menu/?menu_id=7";
 	var contentDataURLS = "http://femme.nextmedia.ma/api/get_recent_posts/";
 
-	$.getJSON(menuDataURLS, function(data){
+	$.getJSON(menuDataURLS).then(function(data) {
 		var menuData = '';
 		var count = 0;
 		$.each(data, function(key, value){
@@ -47,9 +47,12 @@ $(document).ready(function(){
 
 		$('#menuData').append(menuData);
 
+	})
+	.fail(function() {
+		// ...didn't work, handle it
 	});
 
-	$.getJSON(contentDataURLS, function(data){
+	$.getJSON(contentDataURLS).then(function(data) {
 		var contentData = '',
 			count = 0;
 		$.each(data, function(key, value){
@@ -71,9 +74,32 @@ $(document).ready(function(){
 			else {
 				return false;
 			}
+		})
+		.fail(function() {
+			// ...didn't work, handle it
 		});
 
 		$('#contentData').append(contentData);
 
-	});	
+	});
+
+	$.getJSON(menuDataURLS).then(function(data) {
+		var menuData = '';
+		var count = 0;
+		$.each(data, function(key, value){
+			if( count < 4) {
+				
+			}
+			else {
+				return false;
+			}
+		});
+
+		$('#menuData').append(menuData);
+
+	})
+	.fail(function() {
+		// ...didn't work, handle it
+	});
+
 });
